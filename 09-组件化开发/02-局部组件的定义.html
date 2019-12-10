@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <mycpn></mycpn>
+</div>
+<div ></div>
+
+<script src="../../js/vue.js"></script>
+<script>
+  const cpnC = Vue.extend({
+    template: `
+      <div>
+        <h2>我是标题<h2>
+        <p>我是内容</p>
+      </div>`
+  })
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    components: {
+      mycpn: cpnC   //使用组件时的标签名：组件构造器
+    }
+  })
+</script>
+</body>
+</html>

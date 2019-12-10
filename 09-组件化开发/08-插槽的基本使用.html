@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  <cpn><button>按钮</button></cpn>
+  <cpn><span>哈哈哈哈</span></cpn>
+  <cpn><i>呵呵呵呵</i></cpn>
+  <cpn>
+    <span>哈哈哈哈</span>
+    <i>呵呵呵呵</i>
+  </cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <h2>标题</h2>
+    <p>内容</p>
+    <slot></slot>     <!--组件标签中的内容将会填充到<slot>标签的位置-->
+    <!--<slot><button>按钮</button></slot>  插槽内部还可设置默认值，例如上面直接写<cpn>组件标签，则内部默认有一个按钮-->
+  </div>
+</template>
+
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    components: {
+      cpn: {
+        template: '#cpn'
+      }
+    }
+  })
+</script>
+</body>
+</html>

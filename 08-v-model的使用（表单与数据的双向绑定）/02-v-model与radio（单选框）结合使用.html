@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <label for="man">     <!--label元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。
+                         如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。-->
+    <input type="radio" name="sex" id="man" value="男" v-model="message">男   <!--radio定义单选框，checkbox定义复选框-->
+  </label>
+  <label for="woman">
+    <input type="radio" name="sex" id=woman value="女"  v-model="message">女
+  </label>
+  <h2>你选择的性别是：{{message}}</h2>
+</div>
+
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: ''     //此处并未指定message的值，当单选框选定之后，数据就会被绑定给message
+    }
+  })
+</script>
+</body>
+</html>

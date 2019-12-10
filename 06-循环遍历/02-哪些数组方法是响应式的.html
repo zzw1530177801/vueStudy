@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="n in letters">{{n}}</li>
+  </ul>
+  <button @click="btnClick">按钮</button>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      letters: ['a','b','c','d']
+    },
+    methods: {
+      btnClick(){
+        //1.给数组末尾添加一个或多个元素
+        //this.letters.push('eee');
+        //2.删除数组的最后一个元素
+        //this.letters.pop();
+        //3.删除数组中的第一个元素
+        //this.letters.shift();
+        //4.在数组最前面添加y一个或多个元素
+        //this.letters.unshift('a','n');
+
+        //5.splice作用： 删除元素/插入元素/替换元素   第一个参数表示开始操作的位置
+        //删除元素；第二个参数传入要删除几个（若没有，则删除后面所有元素）
+        //this.letters.splice(2,2)
+        //替换元素： 第二个参数表示我们要替换几个元素，后面是用于替换前面的元素
+        //this.letters.splice(1,3,'m','n','l');
+        //插入元素： 第二个参数传入0，并且后面跟上要插入的元素
+        this.letters.splice(1,0,'m','n','l');
+      }
+    }
+  })
+</script>
+</div>
+</body>
+</html>

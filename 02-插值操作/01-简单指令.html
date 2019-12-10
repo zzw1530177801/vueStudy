@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h1>{{message}}</h1>
+  <h1 v-once>{{message}}</h1>   <!--元素或者组件只能渲染一次，不会随数据改变而改变；即数据无法实现响应式-->
+  <h1 v-html="url"></h1>        <!--将得到的html数据在解析之后展示出来-->
+  <h1 v-pre>{{message}}</h1>    <!--将标签内数据原样展示，类似于<pre>标签-->
+</div>
+
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊!',
+      url: '<a href="www.baidu.com">百度一下</a>'
+    }
+  })
+</script>
+</body>
+</html>

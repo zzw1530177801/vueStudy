@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn :cmovies="movies" :cmessage="message"></cpn>      <!--此处应注意命名规范，v-bind不支持驼峰标识，因此全部小写即可-->
+</div>
+
+<template id="cpn">
+  <div>
+    <p>{{cmessage}}</p>
+    {{cmovies}}
+  </div>
+</template>
+<script src="../../js/vue.js"></script>
+<script>
+  //父传子：props
+  const cpn = {
+    template: '#cpn',
+    /*1.数组型写法，但是其中存储的是变量而不是字符串
+    props: ['cmovies','cmessage'],
+    2.1对象型写法   推荐
+    //props: {
+      cmovies: Array,  规定接收的数据必须是数组类型，也可以是其它的例如;Srting、Number、Boolean、Object、Date、Function、Symbol
+      cmessage: String
+    }*/
+    cmessage: {
+          type: String,
+          default: 'aaa'},    //还能为数据提供一些默认值 当没有传时显示的就是默认值
+          required: true      //必传值，否则就会报错
+  }
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      movies: ['猩球崛起', '盗梦空间', '蝴蝶效应']
+    },
+    components: {
+      'cpn': cpn
+    }
+  })
+</script>
+</body>
+</html>

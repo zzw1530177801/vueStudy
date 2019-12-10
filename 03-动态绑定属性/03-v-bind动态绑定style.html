@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active{
+      fontSize: 50px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <!--<h2 v-bind:class="{key（样式属性名）: value(属性值)}">{{message}}</h2>-->
+
+  <!--'50px'必须加引号，否则会被当成一个变量去解析-->
+  <h2 style="{fontSize: '50px'}">{{message}}</h2>
+
+  <!--finalSize当成一个变量使用-->
+  <h2 :style="{fontSize: finalSize + 'px',color: finalColor}">{{message}}</h2>
+</div>
+
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      finalSize: 200,
+      finalColor: 'red'
+    }
+  })
+</script>
+</body>
+</html>

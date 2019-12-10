@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--1 .stop-->
+  <div @click="divClick">
+    aaaaa
+    <button @click.stop="btnClick">按钮</button>   <!--当点击按钮时，只调用按钮内的方法btnClick而不会调用divClick即要使用.stop，阻止事件冒泡（从最具体的节点上升到最外层节点)-->
+  </div>
+  <br>
+  <!--2 .prevent-->
+  <form action="baidu">
+    <input type="submit" value="提交" @click.prevent="submitClick">     <!--.prevent阻止浏览器的默认事件，例如此处只打印数据却组织了浏览器的默认提交  可在控制台测试查看-->
+  </form>
+
+  <!--3 .监听某个键帽-->
+  <input type="text" @click.enter="keyUp">      <!--.enter监听回车键，回车键抬起时就会触发调用方法的事件-->
+  <cpn @click.native="cpnClick"></cpn>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    methods: {
+      btnClick(){
+        console.log("btnClick");
+      },
+      divClick(){
+        console.log("divClick");
+      },
+      submitClick(){
+        console.log("submitClick");
+      },
+      keyUp(){
+        console.log("keyUp");
+      }
+    }
+  })
+</script>
+</body>
+</html>

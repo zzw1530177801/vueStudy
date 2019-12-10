@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <img v-bind:src="imgurl" alt="">
+  <a v-bind:href="ahref">百度一下</a>
+
+  <img :src="imgurl" alt="">
+  <a :href="ahref">百度一下</a>       <!--v-bind的语法糖（即简写)-->
+</div>
+
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      imgurl: 'https://www.baidu.com/link?url=D5z4mEtLlix3WherLsUWcMTGVSkIVV4YZKClE6I43FXnefv-_BJ7XGXaxSbIASPnwtRBOzt6cAIhVteSRejPNWtuz4CroZBqPouOA60QCPPdEjtnQJeGKXc6qiC8nlF9RsstZ022oVEot1eLB3rZYSRWN3XYTNpyTsryuAm8fwOBX6c8Z9H4cTCAtcUKBZ8IVjeJpN3KBSr72DqMyMIHOXCIUIMiZfsfgznVv1wWWHaMc1rWVXM7AO123XwSw_nWKtqzMDMDxox4exXybK3KQr1HPw0QPv1Il1miOEZhBb7ONmD7dsjBmzE-qKJytdFOnfi-wwQirk9lIni8kJncWBwvLhu5-m5hOHABhesu3rOO0FbqMiyKH3WHIoK9RQEddrFRkmaLeNpfm2_9fxhFjdXLnwz-ZTrC-wMIPwZC9O8IgxYF716j5k9mIwvftVgjVQ9-xneMhisuXmeCSiQVduw5f5YR0ZWrTpjeaDr29pesNnuAPa-uW-_dW9smuVBDJYzNoDMz5l2ba2lNPMyKg_&wd=&eqid=a17aa4fb0014242d000000035db6d849',
+      ahref: 'http://www.baidu.com'
+    }
+  })
+</script>
+</body>
+</html>

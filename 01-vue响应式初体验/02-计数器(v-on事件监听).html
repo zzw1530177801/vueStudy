@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>当前计数：{{counter}}</h2>
+    <!--<button v-on:click="counter++">+</button>-->
+   <!-- <button v-on:click="counter--">-</button>-->
+
+    <button v-on:click="add">+</button>      <!--v-on的语法糖是@-->
+    <button @click="sub">-</button>
+</div>
+
+<script src="../../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0
+        },
+        methods: {
+            add(){
+                alert('add被执行')
+                this.counter++
+            },      //多个函数之间一逗号分隔
+            sub: function(){
+                alert('sub被执行')
+                this.counter--
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

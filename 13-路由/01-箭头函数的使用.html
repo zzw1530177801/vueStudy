@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+      //箭头函数： 也是一种函数定义的方式
+      //1.定义函数的方式： function
+  const aaa = function () {
+
+  }
+      //2.对象字面量中定义函数
+  const obj = {
+    aaa: function () {
+
+    },
+    aaa(){
+
+    }
+  }
+      //3.ES6中的箭头函数
+  /*const aaa = (参数列表) => {
+
+  }*/
+  //3.1没有参数
+  const aaa = () => {}
+  //3.2两个参数
+  const sum1 = (num1,num2) => {
+    return num1 + num2
+  }
+  //3.3一个参数（可省略括号）
+  const sum = num => {
+    return num * num
+  }
+      //4.
+      //4.1函数代码块有多行代码就正常书写，若只有一行可简写
+  const aaa = (num1,num2) => {
+    console.log(num1);
+    console.log(num2);
+  }
+  const bbb = (num1,num2) => num1+num2;   //此处省略return，它会自动返回
+</script>
+</body>
+</html>

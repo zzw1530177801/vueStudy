@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  <!--<cpn><span v-for="item in languages"></span></cpn> 错误用法，父组件里无法调用子组件的数据-->
+
+  <!--在父组件中获取子组件中的languages： 固定格式-->
+  <cpn>
+    <temolate slot-scope="slot">
+      <span v-for="item in slot.data">{{item}}/</span>  <!--以/分隔展示-->
+    </temolate>
+  </cpn>
+</div>
+
+<template id="cpn">
+  <slot :data="languages">
+    <ul>
+      <li v-for="item in languages">{{item}}</li>
+    </ul>
+  </slot>
+</template>
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    components: {
+      cpn: {
+        template: '#cpn',
+        data(){
+          return {
+            languages: ['javaScript','C++','Java','Python','Swift']
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

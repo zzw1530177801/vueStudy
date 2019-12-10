@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<div id="app">
+  <div v-if="list.length">   <!--判断表格是否有长度，如果没有则直接显示购物车为空-->
+    <table>
+      <thead>
+      <tr>
+        <th></th>
+        <th>书籍名称</th>
+        <th>出版日期</th>
+        <th>价格</th>
+        <th>数量</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="(book,index) in list">
+        <td>{{book.id}}</td>
+        <td>{{book.name}}</td>
+        <td>{{book.date}}</td>
+        <!--<td>{{getFinalPrice(book.price)}}</td>-->   <!--对应js文件里的函数-->
+        <td>{{book.price | showPrice}}</td>     <!--过滤器方法-->
+        <td>
+          <button @click="decrement(index)" :disabled="book.count <= 1">-</button>   <!--利用v-bind给按钮动态绑定一个属性：当按钮的disabled属性为true时，该按钮即不能再进行交互了-->
+          {{book.count}}
+          <button @click="increment(index)">+</button>
+        </td>
+        <td><button @click="removeHandle">移除</button></td>
+      </tr>
+      </tbody>
+    </table>
+    <h2 >总价：{{totalPrice | showPrice}}</h2>
+  </div>
+  <div v-else><h2>购物车为空</h2></div>
+</div>
+<script src="../../js/vue.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
